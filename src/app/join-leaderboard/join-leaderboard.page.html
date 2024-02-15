@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Join Leaderboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-background">
+  <div class="input-group">
+    <ion-label position="floating">Leaderboard Code:</ion-label>
+    <ion-input [(ngModel)]="leaderboardCode"></ion-input>
+  </div>
+  <div class="input-group">
+    <ion-label position="floating">Your Username:</ion-label>
+    <ion-input [(ngModel)]="userName"></ion-input>
+  </div>
+  <ion-button expand="block" class="join-button" (click)="joinLeaderboard()">Join Leaderboard</ion-button>
+</ion-content>

@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'Account',
+        loadChildren: () => import('../Account/Account.module').then(m => m.AccountPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
@@ -27,8 +31,12 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'login',
+    loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule) // Assuming you have a login module
+  },
+  {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: 'login',
     pathMatch: 'full'
   }
 ];

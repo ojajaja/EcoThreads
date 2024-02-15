@@ -1,0 +1,58 @@
+/* General styles */
+ion-header {
+  --background: #ffffff; /* white background for the header */
+}
+
+.page-title {
+  text-align: center; /* center the title if there's enough space */
+  font-weight: bold;
+}
+
+/* Back button specific styles */
+.back-button {
+  color: #3260a1; /* change the color to fit your theme */
+}
+
+/* Styles for registered events button */
+.registered-events-button {
+  --background: transparent;
+  --color: #3260a1; /* theme color */
+}
+
+/* Create event button styles */
+.create-event-button {
+  margin: 20px 10px; /* top and bottom margin increased */
+  --background: #32db64; /* bright color for the button */
+  --color: #ffffff; /* white text */
+}
+
+/* Card styles for each event */
+.event-card {
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
+
+.event-image {
+  width: 100%;
+  height: 200px; /* increased height for better visuals */
+  object-fit: cover; /* ensure the image covers the area */
+}
+
+.event-title {
+  padding: 10px; /* add padding around the title */
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent overlay for readability */
+  color: #ffffff; /* white text */
+  position: absolute;
+  bottom: 0; /* position at the bottom of the image */
+  width: 100%; /* span the full width of the card */
+  text-align: left; /* align text to the left */
+  font-size: 1.2rem; /* slightly larger text */
+}
+
+.event-background {
+  --background: none;
+  background-image: url('../../assets/img/peakpx.jpg');
+  background-size: cover; /* Cover the entire area of the content */
+  background-position: center center; /* Center the image in the content area */
+  background-repeat: no-repeat; /* Do not repeat the image */
+}

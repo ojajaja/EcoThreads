@@ -1,0 +1,50 @@
+// ion-content {
+//     --background: #e6fff5; /* The light green background color */
+//   }
+  
+  .challenge-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Green styles with increased specificity */
+  .challenge-container .green-text {
+    color: #00ff00; /* Green color */
+  }
+  
+  .challenge-container .green-background {
+    background-color: #00ff00; /* Green background */
+  }
+  
+  /* ... existing CSS styles ... */
+  
+  .points-status, .points-activation {
+    background: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    text-align: center;
+    width: 80%;
+    margin: 16px auto;
+  }
+  
+  .status-text {
+    color: #f00; /* Red color for the "not Active" text */
+    font-weight: bold;
+  }
+  
+  .date-box {
+    background: #f00; /* Red background color for the date */
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+  
+  /* ... other existing styles ... */
+  

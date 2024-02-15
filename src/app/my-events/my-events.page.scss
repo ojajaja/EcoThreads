@@ -1,0 +1,54 @@
+/* Ensure the ion-content does not have a white background */
+.event-background {
+    --background: none;
+    background-image: url('../../assets/img/peakpx.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Styling for the header */
+  ion-header {
+    --background: #ffffff; /* or any color that matches your design */
+    --ion-color-base: #ffffff; /* Ensures text and other elements are visible */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  }
+  
+  /* Style for the toolbar title */
+  ion-title {
+    color: #000; /* Ensures the title stands out */
+  }
+  
+  /* Card styles */
+  ion-card {
+    margin: 10px;
+    border-radius: 8px; /* Rounded corners for the cards */
+    overflow: hidden; /* Ensures that the border-radius clips the content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  }
+  
+  /* Card title styles */
+  ion-card-title {
+    font-size: 1.2rem; /* Slightly larger font size for titles */
+    font-weight: bold; /* Makes the title text bold */
+  }
+  
+  /* Style for empty state text */
+  .ion-text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Centers the text vertically */
+    text-align: center; /* Centers the text horizontally */
+    color: rgba(0, 0, 0, 0.6); /* Medium contrast for the text */
+    font-size: 1rem; /* Reasonable size for empty state text */
+  }
+  
+  /* Responsive grid adjustments */
+  @media (min-width: 768px) { /* Adjust this based on your breakpoint needs */
+    ion-col[size-md="6"] {
+      flex: 0 0 50%; /* Use 50% of the space on medium screens and up */
+      max-width: 50%; /* Use 50% of the space on medium screens and up */
+    }
+  }
+  

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="page-title">Events</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="registered-events-button" routerLink="/my-events">Registered Events</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="event-background">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar #searchBar (ionInput)="search($event)"></ion-searchbar>
+        <ion-button class="create-event-button" expand="block" routerLink="/add-event">Create Event</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let event of filteredEvents">
+        <ion-card class="event-card" [routerLink]="['/event-details', event.id]">
+          <ion-img class="event-image" [src]="event.eventBanner"></ion-img>
+          <ion-card-title class="event-title">
+            {{ event.eventName }}
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,98 @@
+/* Style for the filter ion-item */
+.filter-item {
+    --background: #f0f0f0; /* Light grey background */
+    --padding-start: 20px; /* Padding on the left */
+    --padding-end: 20px; /* Padding on the right */
+    --padding-top: 10px; /* Padding on the top */
+    --padding-bottom: 10px; /* Padding on the bottom */
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Style for the ion-label within the filter ion-item */
+  .filter-item ion-label {
+    font-weight: bold; /* Make label text bold */
+  }
+  
+  /* Style for the ion-select within the filter ion-item */
+  .filter-item ion-select {
+    --padding-start: 10px; /* Padding on the left of the select */
+    --padding-end: 10px; /* Padding on the right of the select */
+    --padding-top: 5px; /* Padding on the top of the select */
+    --padding-bottom: 5px; /* Padding on the bottom of the select */
+  }
+  
+  
+  .challenge-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Green styles with increased specificity */
+  .challenge-container .green-text {
+    color: #00ff00; /* Green color */
+  }
+  
+  .challenge-container .green-background {
+    background-color: #00ff00; /* Green background */
+  }
+  
+  /* ... existing CSS styles ... */
+  
+  .points-status, .points-activation {
+    background: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    text-align: center;
+    width: 80%;
+    margin: 16px auto;
+  }
+  
+  .status-text {
+    color: #f00; /* Red color for the "not Active" text */
+    font-weight: bold;
+  }
+  
+  .date-box {
+    background: #f00; /* Red background color for the date */
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+  
+/* Challenge Segment List Styles */
+.challenge-segment {
+    ion-list {
+      padding: 15px;
+      background-color: #f9f9f9; // a light grey background for the list
+    }
+  
+    ion-item {
+      --background: #ffffff; // white background for list items
+      --border-color: #dddddd; // light grey border color
+      --border-style: solid;
+      --border-width: 1px;
+      --border-radius: 5px; // rounded corners for list items
+      margin-bottom: 10px; // space between items
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // subtle shadow for items
+    }
+  
+    ion-label {
+      h2 {
+        font-size: 1.1rem; // slightly larger font size for region names
+        color: #333333; // dark grey color for text
+      }
+  
+      p {
+        font-size: 1rem; // standard font size for points
+        color: #666666; // medium grey for the points text
+      }
+    }
+  }
+  

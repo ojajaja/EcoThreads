@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Region Leaderboard</ion-title>
+  </ion-toolbar>
+
+  <!-- Segmented Control -->
+  <ion-toolbar color="success">
+    <ion-segment [(ngModel)]="segmentValue" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="challenge">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Region</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="leaderboard">
+        <ion-icon name="trophy"></ion-icon>
+        <ion-label>Leaderboard</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- Leaderboard Segment -->
+  <div *ngIf="segmentValue === 'leaderboard'">
+    <ion-item class="filter-item">
+      <ion-label>Select Region</ion-label>
+      <ion-select [(ngModel)]="selectedRegion" (ionChange)="filterUsersByRegion()">
+        <ion-select-option value="North-East">North-East</ion-select-option>
+        <ion-select-option value="North">North</ion-select-option>
+        <ion-select-option value="East">East</ion-select-option>
+        <ion-select-option value="West">West</ion-select-option>
+        <ion-select-option value="Central">Central</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-list>
+      <ion-item *ngFor="let user of users; let i = index">
+        <ion-avatar slot="start">
+          <img [src]="user.photoUrl" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ i + 1 }}. {{ user.name }}</h2>
+          <p>{{ user.points }} Points</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Challenge Segment -->
+<div *ngIf="segmentValue === 'challenge'" class="challenge-segment">
+  <ion-list>
+    <ion-item *ngFor="let item of aggregatedUsers; let i = index">
+      <ion-label>
+        <h2>{{ i + 1 }}. {{ item.region }}</h2>
+        <p>Total Points: {{ item.points }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+
+
+</ion-content>
+

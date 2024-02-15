@@ -1,5 +1,7 @@
 {
   "name": "BIPJ",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{leaderboardId}}</ion-title>
+    <ion-note slot="end">Code: {{leaderboardCode}}</ion-note>
+  </ion-toolbar>
+
+  <!-- Segmented Control -->
+  <ion-toolbar color="success">
+    <ion-segment [(ngModel)]="segmentValue" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="leaderboard">
+        <ion-icon name="trophy"></ion-icon>
+        <ion-label>Leaderboard</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="challenge">
+        <ion-icon name="game-controller"></ion-icon>
+        <ion-label>Challenge</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- Leaderboard Segment -->
+  <div *ngIf="segmentValue === 'leaderboard'">
+    <ion-list>
+      <ion-item *ngFor="let user of users; let i = index">
+        <ion-avatar slot="start">
+          <img [src]="user.photoUrl" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ i + 1 }}. {{ user.name }}</h2>
+          <p>{{ user.points }} Points</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Challenge Segment -->
+<div *ngIf="segmentValue === 'challenge'" class="challenge-container">
+  <div class="points-status" [ngClass]="{'green-text': isDateAndMonthSame()}">
+    2X Points is <span class="status-text" [ngClass]="{'green-text': isDateAndMonthSame()}">
+      {{ isDateAndMonthSame() ? 'Active' : 'not Active' }}
+    </span>
+  </div>
+
+  <div *ngIf="!isDateAndMonthSame()" class="points-activation">
+    2X Point will be active on..
+    <div class="date-box" [ngClass]="{'green-background': isDateAndMonthSame()}">
+      {{ eventDateMessage }}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="segmentValue === 'challenge'">
+  <canvas #myChart baseChart
+  [data]="lineChartData"
+  [type]="lineChartType"
+  [options]="lineChartOptions"
+  [plugins]="lineChartPlugins"
+  [legend]="lineChartLegend">
+</canvas>
+</div>
+
+
+</ion-content>
+

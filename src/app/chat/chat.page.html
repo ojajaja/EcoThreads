@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search..."></ion-searchbar>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segmentValue" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="direct">
+        <ion-icon name="chatbubbles"></ion-icon>
+        <ion-label>Direct Messages</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="discussions">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Discussions</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="segmentValue === 'direct'">
+    <ion-list>
+      <ion-item *ngFor="let chat of chats" (click)="getChat(chat)">
+        <ion-avatar slot="start">
+          <img [src]="photosMap.get(chat.members[0] !== currentUserId ? chat.members[0] : chat.members[1]) || ''">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ namesMap.get(chat.members[0] !== currentUserId ? chat.members[0] : chat.members[1]) || 'Unknown User' }}</h2>
+          <p> {{lastMessagesMap.get(chat.id)}} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="segmentValue === 'discussions'">
+    <!-- Content for Discussions -->
+    <ion-list>
+      <ion-item *ngFor="let discussion of discussions" (click)="goToDiscussion(discussion.id)">
+        <ion-avatar slot="start">
+          <img [src]="'https://i.pravatar.cc/150?u=' + discussion.id">
+        </ion-avatar>
+          <ion-label>
+          <h2>{{ discussion.id }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    </div>
+</ion-content>

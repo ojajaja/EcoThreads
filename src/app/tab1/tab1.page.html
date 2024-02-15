@@ -1,17 +1,249 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="search-toolbar">
+    <ion-searchbar placeholder="Search"></ion-searchbar>
+    <ion-icon name="chatbox-ellipses-outline" class="chat-icon" style="color: white;" (click)="navigateChat()"></ion-icon>
+  </div>
+
+  <!-- Slideshow Background -->
+  <div class="slideshow">
+    <div *ngFor="let slide of slides; let i = index" class="slide" [ngClass]="{'active': i === currentSlide}">
+      <img [src]="slide.image">
+    </div>
+  </div>
+
+  <!-- Tab Content -->
+
+  <div class="fourMenu">
+    <div class='menu'>
+      <ion-button class='m-a' fill="clear">
+        <div class="m-a-link">
+          <img src='assets/homepage/scanner-tab.png' class="icon">
+          <div class="m-a-title"> QR Scan </div>
+        </div>
+      </ion-button>
+      <ion-button class='m-a' fill="clear">
+        <div class="m-a-link">
+          <img src='assets/homepage/wallet-tab.png' class="icon">
+          <div class="m-a-title"> Wallet </div>
+        </div>
+      </ion-button>
+      <ion-button class='m-a' fill="clear" (click)="navigateTracker()">
+        <div class="m-a-link">
+          <img src='assets/homepage/tracker-tab.png' class="icon">
+          <div class="m-a-title"> Tracker </div>
+        </div>
+      </ion-button>
+      <ion-button class='m-a' fill="clear">
+        <div class="m-a-link">
+          <img src='assets/homepage/point-tab.png' class="icon">
+          <div class="m-a-title"> Points </div>
+        </div>
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Tab Content 2 -->
+  <div class="menu-grid-wrapper swiper">
+
+    <div class="menu-flex swiper-wrapper">
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateTracker()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/market-tab.png" />
+          <div class="menu-title">Marketplace</div>
+        </div>
+      </ion-button>
+
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateTracker()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/map-tab2.png" />
+          <div class="menu-title">Map</div>
+        </div>
+      </ion-button>
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateTracker()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/rewards-tab.png" />
+          <div class="menu-title">Rewards</div>
+        </div>
+      </ion-button>
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateLeaderboard()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/board-tab.png" />
+          <div class="menu-title">Leaderboard</div>
+        </div>
+      </ion-button>
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateEvent()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/events-tab.png" />
+          <div class="menu-title">Events</div>
+        </div>
+      </ion-button>
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateTracker()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/challenge-tab.png" />
+          <div class="menu-title">Challenges</div>
+        </div>
+      </ion-button>
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateTracker()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/forum-tab.png" />
+          <div class="menu-title">Forum</div>
+        </div>
+      </ion-button>
+      <ion-button class="menu-item swiper-slide" fill="" (click)="navigateTracker()">
+        <div class=" menu-link">
+          <img width="invalid-value" height="invalid-value" alt="SPayLater" class="menu-image"
+            style="object-fit: contain" src="assets/homepage/sale-tab.png" />
+          <div class="menu-title">Flash Sale</div>
+        </div>
+      </ion-button>
+    </div>
+
+  </div>
+
+  <!-- LeaderBoard -->
+  <div class="line"></div>
+  <div class="leaderboard-section">
+    <h3 class='title'>
+      LeaderBoard
+      <a class='link' (click)="navigateLeaderboard()">View All</a>
+    </h3>
+    <div class="leaderboard">
+      <div class="leaderboard-entry" [routerLink]="['/leaderboard-details', Individual]">
+        <div class="placement">{{ currentUserRanking || 'Loading...' }}</div>
+        <div class="leaderboard-split">
+          <img src='assets/homepage/leaderboard1.png' alt="Individual Icon" class="icon-individual" />
+          <div class="category">Individual</div>
+        </div>
+      </div>
+      <div class="leaderboard-entry" [routerLink]="['/region-leaderboard']">
+        <div class="placement">{{ highestScoringRegion || 'Loading...' }}</div>
+        <div class="leaderboard-split">
+          <img src='assets/homepage/leaderboard2.png' alt="Region Icon" class="icon-region" />
+          <div class="category">Region</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="line"></div>
+
+  <!-- Flash sale -->
+  <div class='fsale'>
+    <h3>
+      F <i class="bi bi-lightning-charge-fill"></i> ash sale
+      <div class="countdown-wrapper">
+        <div id="countdown" class="countdown-text">{{ countdownDisplay }}</div>
+        <i class="bi bi-clock" id="clock"></i>
+        <div class="countdown-bar-container">
+          <div class="countdown-bar" [style.width]="barWidth"></div>
+        </div>
+      </div>
+    </h3>
+
+    <div class='fsale-page'>
+
+      <div class='fsale-box'>
+        <div class='tag'><i class="bi bi-handbag"></i></div>
+        <img src='https://pngimg.com/uploads/men_shoes/men_shoes_PNG7476.png' />
+        <p class='name'>Soccer Shoe</p>
+        <p class='price'>$20.00</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 50%;"></div>
+          <span class="sold">78 SOLD</span>
+        </div>
+      </div>
+
+      <div class='fsale-box'>
+        <div class='tag'><i class="bi bi-handbag"></i></div>
+        <img src='https://pngimg.com/uploads/hoodie/hoodie_PNG45.png' />
+        <p class='name'>Yellow Hoodie</p>
+        <p class='price'>$ 100.00</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 90%;"></div>
+          <span class="sold">SELLING OUT</span>
+        </div>
+      </div>
+
+      <div class='fsale-box'>
+        <div class='tag'><i class="bi bi-handbag"></i></div>
+        <img src='https://pngimg.com/uploads/hoodie/hoodie_PNG45.png' />
+        <p class='name'>Yellow Hoodie</p>
+        <p class='price'>$5.00</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 60%;"></div>
+          <span class="sold">30 SOLD</span>
+        </div>
+      </div>
+
+      <div class='fsale-box'>
+        <div class='tag'><i class="bi bi-handbag"></i></div>
+        <img src='https://pngimg.com/uploads/hoodie/hoodie_PNG45.png' />
+        <p class='name'>Yellow Hoodie</p>
+        <p class='price'>$5.00</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 60%;"></div>
+          <span class="sold">30 SOLD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="line"></div>
+
+
+  <!-- Daily Discovery -->
+
+  <h3 class='title'>
+    Daily Discovery
+    <a class='link'>View All</a>
+  </h3>
+
+  <div class='product-box'>
+    <a class='product'>
+      <div class='tag'><i class="bi bi-handbag"></i></div>
+      <img src='https://pngimg.com/uploads/hat/hat_PNG5689.png' />
+      <p class='name'>Super Cool Hat</p>
+      <p class='price'>$50.00</p>
+    </a>
+    <a class='product'>
+      <div class='tag'><i class="bi bi-handbag"></i></div>
+      <img src='https://pngimg.com/uploads/hat/hat_PNG5689.png' />
+      <p class='name'>Super Cool Hat</p>
+      <p class='price'>$50.00</p>
+    </a>
+    <a class='product'>
+      <div class='tag'><i class="bi bi-handbag"></i></div>
+      <img src='https://pngimg.com/uploads/hat/hat_PNG5689.png' />
+      <p class='name'>Super Cool Hat</p>
+      <p class='price'>$50.00</p>
+    </a>
+    <a class='product'>
+      <div class='tag'><i class="bi bi-handbag"></i></div>
+      <img src='https://pngimg.com/uploads/hat/hat_PNG5689.png' />
+      <p class='name'>Super Cool Hat</p>
+      <p class='price'>$50.00</p>
+    </a>
+    <a class='product'>
+      <div class='tag'><i class="bi bi-handbag"></i></div>
+      <img src='https://pngimg.com/uploads/hat/hat_PNG5689.png' />
+      <p class='name'>Super Cool Hat</p>
+      <p class='price'>$50.00</p>
+    </a>
+    <a class='product'>
+      <div class='tag'><i class="bi bi-handbag"></i></div>
+      <img src='https://pngimg.com/uploads/hat/hat_PNG5689.png' />
+      <p class='name'>Super Cool Hat</p>
+      <p class='price'>$50.00</p>
+    </a>
+  </div>
 </ion-content>

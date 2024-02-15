@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{event?.eventName}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button style="opacity: 0;"></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="event-banner" *ngIf="event?.eventBanner">
+    <ion-img [src]="event.eventBanner"></ion-img>
+  </div>
+  <div class="event-description">
+    <p>{{event?.eventDesc}}</p>
+  </div>
+  <div class="date">
+    <p class="bold">Start Date: </p>
+    <p>{{event?.eventStartDate | date: 'MMMM d, y, h:mm a' }}</p>
+  </div>
+  <div class="date">
+    <p class="bold">End Date:</p>
+    <p>{{event?.eventEndDate | date: 'MMMM d, y, h:mm a' }}</p>
+  </div>
+  <div class="date">
+    <p class="bold">Venue:</p>
+    <p>{{event?.eventVenue}}</p>
+    <div *ngIf="showMap" id="map" style="height: 300px; width: 100%;"></div>
+    <p *ngIf="!showMap" class="invalid-location">Location not Found!</p>
+  </div>
+  <div class="event-description">
+    <p>Event by: {{userName}}</p>
+  </div>
+
+  <ion-button *ngIf="currentUserUid === event?.uid" expand="block" [routerLink]="['/edit-event', event.id]">
+    Edit Event
+  </ion-button>
+  <ion-button *ngIf="currentUserUid !== event?.uid && !isUserRegistered" expand="block" (click)="registerForEvent()">
+    Register
+  </ion-button>
+</ion-content>

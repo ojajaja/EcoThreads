@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/discussions"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{discussionId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let message of messages"
+       [ngClass]="{'message-container': true, 'my-message': message.sender === currentUserId, 'other-message': message.sender !== currentUserId}">
+    <div class="message">
+      <div *ngIf="message.sender !== currentUserId" class="message-info">
+        {{message.senderName}}
+      </div>
+      <div class="message-content">
+        {{message.messageText}}
+      </div>
+      <div class="message-timestamp">
+        {{message.createdAt | date: 'shortTime'}}
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-input [(ngModel)]="newMessage" type="text" placeholder="Type a message..."></ion-input>
+      <ion-button slot="end" (click)="sendMessage()" [disabled]="!newMessage.trim()">
+        Send
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

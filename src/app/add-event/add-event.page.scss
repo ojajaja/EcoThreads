@@ -1,0 +1,52 @@
+/* General styles for the page */
+ion-content {
+    --background: #fafafa; /* Light grey background */
+  }
+  
+  /* Form Styles */
+  form {
+    padding: 20px;
+  }
+  
+  ion-item {
+    margin-bottom: 10px; /* Space out form items */
+    --background: #ffffff; /* White background for form items */
+    --border-radius: 8px; /* Rounded corners for form items */
+    --padding-start: 20px; /* Padding inside the form items */
+    --padding-end: 20px;
+    --padding-top: 13px;
+    --padding-bottom: 13px;
+    --inner-border-width: 0; /* No inner borders */
+    --inner-padding-end: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+  }
+  
+  ion-label {
+    --color: #888; /* Dark grey color for the floating labels */
+  }
+  
+  ion-input,
+  ion-textarea,
+  ion-datetime {
+    --placeholder-color: #c0c0c0; /* Light grey for placeholders */
+    --color: #000; /* Black color for text input */
+    --padding-start: 2px; /* Adjust padding for alignment */
+  }
+  
+  ion-button {
+    margin-top: 30px; /* Space above the button */
+    --background: #32db64; /* Green background for the submit button */
+    --background-activated: #28a745; /* Darker green when pressed */
+    --border-radius: 8px; /* Rounded corners for the button */
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    font-size: 1rem; /* Button text size */
+    font-weight: 500; /* Button text weight */
+  }
+  
+  ion-button[type="submit"] {
+    --background-hover: #2c9f4f; /* Hover state for button */
+  }
+  
+  /* If you have specific styles for the title, back button or banner input, you can define them here */
+  

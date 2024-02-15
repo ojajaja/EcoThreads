@@ -1,0 +1,70 @@
+<ion-content class="ion-padding">
+  <form [formGroup]="registerForm">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <h1>Create Account</h1>
+        <p>Fill in your information below or register with your social account</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="input-rounded marginBottom">
+          <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+          <ion-input type="text" placeholder="Username" formControlName="username"></ion-input>
+        </ion-item>
+
+        <ion-item class="input-rounded marginBottom">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="input-rounded marginBottom">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        </ion-item>
+        
+        <ion-item class="input-rounded marginBottom">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input type="password" placeholder="Confirm Password" formControlName="confirmPassword"></ion-input>
+        </ion-item>
+
+        <ion-item class="input-rounded">
+          <ion-icon name="barcode-outline" slot="start"></ion-icon>
+          <ion-input type="text" placeholder="Referral Code" formControlName="referralCode"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-item lines="none" *ngIf="errorPresent" class="error-container">
+      <ion-label class="error-message">
+        {{signupError}}
+      </ion-label>
+    </ion-item>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" (click)="register()">Register</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col size="12" class="ion-text-center social-login">
+        <p>Or register with</p>
+        <img src="../../assets/img/facebookLogo.svg" alt="Facebook" class="social-icon" />
+        <img src="../../assets/img/googleLogo.svg" alt="Google" class="social-icon" />
+        <img src="../../assets/img/appleLogo.svg" alt="Apple" class="social-icon" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-text color="primary">
+          <a>Already have an account? <span class="login" (click)="login()">Login</span></a>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+</ion-content>

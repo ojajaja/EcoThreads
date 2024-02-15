@@ -1,0 +1,55 @@
+ion-content {
+    --background: linear-gradient(to bottom, #98FB98 0%, #ffffff 100%);
+  }
+  
+  ion-list {
+    background: transparent;
+  }
+  
+  ion-item {
+    --background: transparent;
+    --ion-item-color: #000; // Set text color to black
+    --ion-item-ripple-color: transparent; // Remove the ripple effect color if needed
+  }
+  
+  ion-label {
+    padding: 8px 16px; // Adjust padding as needed
+  }
+  
+  ion-label h2 {
+    font-weight: bold; // Bold the h2 element
+    margin-top: 0; // Remove any default margins
+  }
+  
+  .paragraph-container {
+    border-top: 1px solid #000; // Line above the paragraph
+    border-bottom: 1px solid #000; // Line below the paragraph
+  }
+  
+  ion-label p {
+    font-weight: bold; // Bold the paragraph
+    margin: 0; // Remove default margin
+    padding: 8px 0; // Padding inside the bordered container
+  }
+  
+  ion-icon {
+    color: #000; // Set the arrow icon color to black
+  }
+
+  .white-button {
+    --background: #ffff; /* Replace with your button color */
+    --background-activated: #yourDarkerColor; /* Replace with a darker color for the activated state */
+    --border-radius: 20px; /* Adjust as needed for rounded corners */
+    --height: 50px; /* Increase button height as needed */
+    border: none; /* Assuming you want no borders */
+    color: black; /* Set the text color */
+    white-space: normal; /* Allows text to wrap */
+    text-overflow: ellipsis; /* If text is too long, it will end with an ellipsis */
+    line-height: normal; /* Adjust line height to match design requirements */
+    padding: 10px 0; /* Adds padding inside the button, top and bottom */
+    font-size: 1em; /* Adjust font size as needed */
+    overflow: hidden; /* Prevents text from overflowing */
+    text-transform: none; /* Prevents automatic capitalization */
+  }
+  
+  

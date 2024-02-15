@@ -1,0 +1,206 @@
+//Start : Header CSS
+ion-header {
+
+    .title-with-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* Adjust the spacing between items */
+        width: 100%;
+
+        img {
+            padding-left: 10px;
+        }
+    }
+
+    .header-logo {
+        height: 30px; // Adjust to your preference
+        width: auto; // Keep the aspect ratio
+        margin-right: 0px; // Spacing between logo and title
+    }
+
+    ion-title {
+        --padding-start: 0; // Removes padding at the start of the title
+        --padding-end: 0; // Removes padding at the end of the title
+        margin: 0; // Removes any default margin
+        font-size: 1.2em; // Adjust the font size as needed
+        display: flex;
+        align-items: center;
+    }
+
+    ion-toolbar {
+        --background: #46C451; // Replace with your green color
+        --color: black; // White color for text and icons
+        padding: 0;
+
+        ion-title {
+            --padding-start: 0; // Align to the very start
+        }
+
+        ion-searchbar {
+            --background: #D6EFD2; // Slightly darker than the toolbar for contrast
+            --placeholder-color: black;
+            --icon-color: black;
+            --color: black;
+            --border-radius: 10px; // Adjust for rounded corners
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 13px;
+        }
+
+        .custom-filter-button {
+            position: relative;
+
+            ion-icon {
+                color: #000; // Change as needed
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: -4px; // Adjust as needed
+                left: 1px; // Adjust as needed
+                width: 40px; // Adjust as needed
+                height: 41px; // Adjust as needed
+                background-color: #D6EFD2; // Change to match the color of the box
+                border-radius: 10px; // Adjust as needed for rounded corners
+                z-index: -1;
+            }
+        }
+
+        ion-buttons {
+            ion-button {
+                --background: transparent;
+                --color: black;
+            }
+        }
+
+        ion-icon {
+            --ionicon-stroke-width: 32px; // Adjust icon size
+            font-size: 28px;
+        }
+
+        .filter {
+            margin-bottom: 13px;
+        }
+    }
+}
+
+//End : Header CSS
+
+//Start : Products CSS
+ion-card {
+
+    border-radius: 10px;
+
+    .price-badge {
+        position: absolute;
+        top: 10px; // Adjust to match your design
+        left: 10px; // Adjust to match your design
+        width: 30px; // Adjust to match your design
+        height: 30px; // Adjust to match your design
+        background-color: #D6EFD2; // Assuming a white badge background
+        border-radius: 10px; // Adjust for desired border radius
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 4px 16px 4px rgba(0, 0, 0, 0.10); // Optional: adds shadow for depth
+        z-index: 10;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .badge-icon {
+        color: white; // Icon color
+        font-size: 20px; // Icon size
+    }
+
+    ion-card-title {
+        font-size: 11px;
+    }
+
+    img {
+        width: 187px;
+        height: 178px;
+        object-fit: cover;
+    }
+
+    .card-inner-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .text-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .price-condition {
+        display: flex;
+    }
+
+    .price {
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 10px;
+    }
+
+    .condition {
+        font-size: 10px;
+        color: #666;
+    }
+
+    .seller-info {
+        display: flex;
+        align-items: center;
+    }
+
+    .seller-avatar {
+        width: 20px; // Explicitly set the width
+        height: 20px; // Explicitly set the height
+        --border-radius: 50%; // This will ensure the avatar is fully rounded
+        margin-right: 5px;
+        overflow: hidden; // Ensures that the image doesn't overflow the rounded edges
+
+        img {
+            object-fit: cover; // Ensures the image within the avatar covers the area
+            height: auto;
+        }
+    }
+
+    .seller-name {
+        font-size: 8px;
+    }
+
+    .heart-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    ion-icon {
+        color: white; // Adjust the color as needed
+    }
+}
+
+//End : Products CSS
+
+//Start : Add Products CSS
+.floating-action-button {
+    position: fixed; // Fixed position regardless of scrolling
+    right: 30px; // Distance from the right of the screen
+    bottom: 40px; // Distance from the bottom of the screen
+    z-index: 999; // Ensures the button is above other elements
+
+    ion-fab-button {
+        --background: #D6EFD2; // Use the color you want for the button
+        --color: #46C451; // Use the color you want for the icon
+        --ionicon-stroke-width: 65px;
+    }
+}
+
+//End : Add Products CSS

@@ -21,9 +21,19 @@
     "@angular/platform-browser": "^17.0.2",
     "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
+    "@capacitor/camera": "^5.0.9",
+    "@capacitor/core": "5.6.0",
+    "@ionic-native/core": "^5.36.0",
     "@ionic/angular": "^7.0.0",
+    "@ionic/pwa-elements": "^3.2.2",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "chart.js": "^4.4.1",
+    "firebase": "^8.6.3",
+    "googleapis": "^133.0.0",
     "ionicons": "^7.0.0",
-    "rxjs": "~7.8.0",
+    "ng2-charts": "^5.0.4",
+    "nodemailer": "^6.9.9",
+    "rxjs": "^7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },
@@ -37,10 +47,15 @@
     "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^17.0.2",
     "@angular/language-service": "^17.0.2",
+    "@capacitor/cli": "5.6.0",
     "@ionic/angular-toolkit": "^9.0.0",
+    "@types/google.maps": "^3.54.10",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "cordova-plugin-calendar": "^5.1.6",
+    "cordova-plugin-camera": "^7.0.0",
+    "cordova-plugin-email-composer": "^0.10.1",
     "eslint": "^7.26.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
@@ -55,5 +70,12 @@
     "ts-node": "^8.3.0",
     "typescript": "~5.2.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-email-composer": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-calendar": {}
+    }
+  }
 }

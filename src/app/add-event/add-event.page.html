@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="addEventForm" (ngSubmit)="addEvent()">
+    <ion-item>
+      <ion-label position="floating">Event Name</ion-label>
+      <ion-input formControlName="eventName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea formControlName="eventDesc"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Start Date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" formControlName="eventStartDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">End Date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" formControlName="eventEndDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Venue</ion-label>
+      <ion-input formControlName="eventVenue"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Event Banner</ion-label>
+      <ion-input type="file" (change)="onFileSelected($event)"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="secondary" type="submit">Add Event</ion-button>
+  </form>
+</ion-content>

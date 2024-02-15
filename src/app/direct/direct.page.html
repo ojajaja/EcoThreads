@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-icon name="arrow-back-outline" slot="start" (click)="navigateChat()"></ion-icon>
+    <ion-title>{{otherParticipantName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" [scrollEvents]="true">
+  <ion-list lines="none">
+    <ion-item class="chat-item" *ngFor="let message of (chats | async)">
+      <div [ngClass]="{'my-message': message.sender === chatService.currentUserId, 'other-message': message.sender !== chatService.currentUserId}">
+        <div class="message-content">
+          <!-- Image Message -->
+          <img *ngIf="isImageUrl(message.messageText)" [src]="message.messageText" [alt]="message.messageText">
+    
+          <!-- Text Message -->
+          <p *ngIf="!isImageUrl(message.messageText)">{{ message.messageText }}</p>
+    
+          <div class="message-timestamp">{{ message.createdAt | date: 'shortTime' }}</div>
+        </div>
+      </div>
+    </ion-item>
+    
+    
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="chat-input-container">
+      <ion-textarea
+        autoGrow
+        rows="1"
+        placeholder="Type a message"
+        [(ngModel)]="message"
+        class="chat-input"
+      ></ion-textarea>
+      <ion-button fill="clear" (click)="takePicture()" class="camera-button">
+        <ion-icon name="camera" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-fab-button size="small" (click)="sendTextMessage()" class="send-button">
+        <ion-icon name="send"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+

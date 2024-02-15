@@ -1,17 +1,89 @@
-<ion-header [translucent]="true">
+<!--Start : Ionic Header-->
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <div class="title-with-logo">
+      <img src="../../assets/MarketplaceIcon.png" alt="Logo" class="header-logo"/>
+      <ion-title>Marketplace</ion-title>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="wallet"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="chatbubble-ellipses"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button class="custom-filter-button">
+        <ion-icon name="options" class="filter"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<!--End : Ionic Header-->
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Marketplace</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!--Start : Products in marketplace-->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of products">
+        <ion-card>
+          <div class="price-badge">
+            <div *ngIf="product.categories == 'BS'">
+              <img src="assets/category/BS.png" alt="Brand Badge" />
+            </div>
+            <div *ngIf="product.categories == 'BT'">
+              <img src="assets/category/BT.png" alt="Brand Badge" />
+            </div>
+          </div>
+          <img [src]="product.image" alt="{{ product.name }}" />
+          <ion-card-content class="ion-padding">
+            <div class="card-inner-content">
+              <div class="text-content">
+                <ion-card-title><b>{{ product.name }}</b></ion-card-title>
+                <div class="price-condition">
+                  <p class="price">{{ product.price | currency }}</p>
+                  <p class="condition">{{ product.condition }}</p>
+                </div>
+                <div class="seller-info">
+                  <ion-avatar class="seller-avatar">
+                    <img
+                      [src]="product.sellerImage"
+                      alt="{{ product.seller }}"
+                    />
+                  </ion-avatar>
+                  <p class="seller-name">{{ product.seller }}</p>
+                </div>
+              </div>
+              <div class="heart-icon">
+                <ion-icon name="heart-outline" size="small"></ion-icon>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--End : Products in marketplace-->
+  
 </ion-content>
+
+<div class="floating-action-button">
+  <ion-fab vertical="bottom" horizontal="end" edge>
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>

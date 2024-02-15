@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registered Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="event-background">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let event of registeredEvents">
+        <ion-card [routerLink]="['/event-details', event.id]">
+          <ion-card-header>
+            <ion-card-title>
+              {{event.eventName}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" *ngIf="registeredEvents.length === 0">
+        <ion-text color="medium">
+          <h2 class="ion-text-center">No events to show.</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
